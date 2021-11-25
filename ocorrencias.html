@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema Operacional - Eduvale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="alert alert-info text-center">Aulas de Sistemas Operacionais</h1>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-3">
+
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item ">Visão Geral dos Sistemas Operacionais</a>
+                    <a href="evolucao.html" class="list-group-item">A Evolução dos Sistemas Operacionais</a>
+                    <a href="ocorrencias.html" class="list-group-item active">Concorrência</a>
+                    <a href="estrutura.html" class="list-group-item">Estrutura do Sistema Operacional</a>
+                    <a href="processo.html" class="list-group-item">Processo</a>
+                    <a href="thread.html" class="list-group-item">Thread</a>
+                    <a href="sincronizacao.html" class="list-group-item">Sincronização e Comunicação de Processos</a>
+                    <a href="gerencia_processador.html" class="list-group-item">Gerencia do Processador</a>
+                    <a href="gerencia_memoria.html" class="list-group-item">Gerência de Memória</a>
+                    <a href="gerencia_dispositivos.html" class="list-group-item">Gerencia de dispositivos</a>
+                    <a href="gerencia_arquivos.html" class="list-group-item">Gerência de Sistema de Arquivos</a>
+                    <a href="multiplos_processarores.html" class="list-group-item">Sistemas com múltiplos processadores</a>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <h2 class="text-center alert alert-secondary">Concorrência</h2>
+                <h3> Introdução</h3>
+                <p>
+                    O mecanismo de concorrência é o princípio básico para o projeto e a implementação dos sistemas multiprogramados. A possibilidade de o processador executar várias tarefas ao mesmo tempo permite que vários programas sejam executados concorrentemente pelo
+                    sistema operacional.</p>
+                <h3> Sistemas mono programados versus multi programados</h3>
+                <p>
+                    Os sistemas mono programados eram capazes de executar um único programa de cada vez e por isso nestes sistemas operacionais os recursos como processador, memória e dispositivos de entrada e saída, eram usados de forma pouco eficiente, limitando o desempenho
+                    destas arquiteturas. Isto porque muitos destes recursos permaneciam ociosos por longos períodos de tempo. </p>
+                <p>
+                    Por exemplo, enquanto uma leitura em disco é realizada, o processador permanece ocioso. O tempo de espera é longo uma vez que uma operação de entrada e saída é mais lenta do que um calculo realizado pelo processador.</p>
+                <p>
+                    Um outro exemplo, é o desperdício de memória principal uma vez que somente um programa que não ocupe toda a memória, Neste caso existirão vários blocos de memória ociosos durante toda a execução do programa.</p>
+                <p>
+                    Em sistemas multi programados isso não ocorre pois vários programas podem ser executados pelo processador e compartilham a memória principal.</p>
+
+                <h3> A Concorrência no uso da UCP</h3>
+                <p>
+                    A utilização concorrente da UCP deve ser implementada de maneira que, quando um programa perde o uso do processador e depois retorna para continuar o processamento seu estado deve ser idêntico ao do momento em que foi interrompido. O programa deverá continuar
+                    sua execução exatamente na instrução seguinte àquela em que havia sido interrompido. Para o usuário este processo é transparente, ficando ao usuário a percepção de que o computador está totalmente dedicado ao usuário e a mais nenhum
+                    outro processo.</p>
+                <p>
+                    Pois é exatamente este mecanismo de concorrência que permite o compartilhamento de recursos pelos vários programas sendo executados pelo processador.</p>
+
+                <h3> As vantagens dos sistemas multi programados</h3>
+                <p>
+                    As vantagens de um sistema operacional multi programado fica evidente quando temos um cenário com 3 programas sendo executados em um computador com um disco, uma impressora e um terminal. </p>
+                <p>
+                    Neste computador, caso os programas sejam executados em um sistema operacional mono programado ocorrerá que os programas serão executados de forma sequencial. Sendo que o programa 1 em 5 minutos, enquanto o programa 2 e o programa 3 aguardam. </p>
+                <p>
+                    Quando o programa 1 termina sua execução o programa 2 é iniciado e leva 20 minutos sendo executado enquanto o programa 3 aguarda sua vez. Finalmente o programa 3 inicia sua execução apos aguardar 25 minutos e completa seu processamento em dez minutos,
+                    totalizando 35 minutos de processamento dos 3 programas. O tempo total de execução dos programas é grande devido ao sequenciamento da execução dos programas. Em um sistema multiprogramado o ganho de execução é grande pois os 3 programas
+                    são executados de forma concorrente, com o uso do processador, memória e discos sendo compartilhados pelos 3 programas.</p>
+
+                <h3> Interrupções e Exceções</h3>
+                <p>
+                    Durante a execução de um programa podem ocorrer alguns eventos inesperados, provocando um desvio forçado do fluxo de execução. Estes eventos inesperados são conhecidos por interrupção ou exceção e podem ser consequência de um sinal de um dispositivo de
+                    hardware ou da execução de instruções dentro do próprio programa.</p>
+
+                <h4></h4>
+                Interrupção
+                <p>
+                    A interrupção é o mecanismo que torna possível a implementação da concorrência nos computadores, sendo o fundamento básico dos sistemas multi programados. É em função desse mecanismo que o sistema operacional sincroniza a execução de todas as suas rotinas
+                    e dos programas dos usuários, além de controlar os dispositivos.</p>
+                <p>
+                    Uma interrupção é sempre gerada por algum evento externo ao programa, e, nesse caso, independe da instrução que está sendo executada. Um exemplo de interrupção ocorre quando um dispositivo de entrada e saída sinaliza ao processador que uma operação de
+                    entrada saída está completa. Neste caso, o processador deve interromper o programa que está sendo executado para tratar o termino da operação de entrada saída.</p>
+                <h4></h4>
+                Identificando e tratando interrupções
+                <p>
+                    Ao final da execução de cada instrução, a unidade de controle verifica a ocorrência de algum tipo de interrupção. Nesse caso, o programa em execução é interrompido e o controle desviado para uma rotina responsável por tratar o evento ocorrido, chamada
+                    rotina de tratamento de interrupção. Como existem vários tipos de interrupção, podem haver diferentes rotinas de tratamento de interrupção.</p>
+                <p>
+                    Para que o programa interrompido possa retomar sua execução exatamente do ponto onde foi interrompido, é necessário que, no momento da interrupção, sejam guardadas informações a respeito da execução do programa. Estas informações são basicamente o conteúdo
+                    dos registradores que deverão ter seus valores restaurados quando a execução do programa interrompido for reiniciada.</p>
+                <p>
+                    A figura abaixo mostra o esquema de interrupção:</p>
+                <img src="imgs/concorrencia1.png" alt="">
+
+                <p>
+                    O mecanismo de interrupção envolve, em seus passos, tanto o hardware quanto o software:</p>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Via hardware </th>
+                            <th>Via software</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <ol>
+                                    <li>Um sinal de interrupção é gerado para o processador;</li>
+                                    <li>Apos o termino da execução da instrução corrente, o processador identifica o pedido de interrupção;</li>
+                                    <li>O conteúdo dos registradores PC e seus status são salvos</li>
