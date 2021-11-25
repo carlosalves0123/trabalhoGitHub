@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema Operacional - Eduvale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="alert alert-info text-center">Aulas de Sistemas Operacionais</h1>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-3">
+
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item active">Visão Geral dos Sistemas Operacionais</a>
+                    <a href="evolucao.html" class="list-group-item">A Evolução dos Sistemas Operacionais</a>
+                    <a href="ocorrencias.html" class="list-group-item">Concorrência</a>
+                    <a href="estrutura.html" class="list-group-item">Estrutura do Sistema Operacional</a>
+                    <a href="processo.html" class="list-group-item">Processo</a>
+                    <a href="thread.html" class="list-group-item">Thread</a>
+                    <a href="sincronizacao.html" class="list-group-item">Sincronização e Comunicação de Processos</a>
+                    <a href="gerencia_processador.html" class="list-group-item">Gerencia do Processador</a>
+                    <a href="gerencia_memoria.html" class="list-group-item">Gerência de Memória</a>
+                    <a href="gerencia_dispositivos.html" class="list-group-item">Gerencia de dispositivos</a>
+                    <a href="gerencia_arquivos.html" class="list-group-item">Gerência de Sistema de Arquivos</a>
+                    <a href="multiplos_processarores.html" class="list-group-item">Sistemas com múltiplos processadores</a>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <h2 class="text-center alert alert-secondary">Visão Geral dos Sistemas Operacionais</h2>
+
+                <h3>Introdução</h3>
+
+                <p>Um sistema operacional é um conjunto de rotinas e serviços executado pelo computador que tem como objetivo facilitar o uso do computador pelo usuário e gerenciar e controlar o uso dos recursos do computador.</p>
+
+                <p><mark>O sistema operacional funciona como uma interface entre o usuário e o computador, tornando o uso do computador mais simples, eficiente e seguro.</mark></p>
+
+                <p>Para isso o computador controla o funcionamento do computador através do gerenciamento dos diversos recursos do computador tais como memória, processador, dispositivos de entrada e saída, etc.</p>
+
+                <p>Enquanto os programas do usuário são executados de forma linear, com inicio, meio e fim as rotinas e serviços do sistema operacional são executados de forma assíncrona e concorrente em função de eventos que podem ocorrer a qualquer momento.</p>
+
+                <h3>Funções de um Sistema Operacional</h3>
+
+
+                <p>Um sistema operacional possui duas funções principais a saber:</p>
+
+                <ul>
+                    <li>Facilidade de acesso aos recursos do computador;</li>
+                    <li>Compartilhamento dos recursos do computador de forma organizada e protegida;</li>
+
+                </ul>
+
+
+                <h3>Facilidade de acesso aos recursos do computador</h3>
+
+                <p>Um computador possui diversos recursos tais como memória, discos, impressora, gravador de dvd, etc.</p>
+
+                <p>Para que o usuário possa utilizar estes recursos ele solicita ao sistema operacional que execute uma operação que é executada sem que o usuário tenha que se preocupar com os detalhes de como a operação é executada ou como os recursos são
+                    utilizados durante a operação.</p>
+
+                <p>Se mais de um usuário solicitam a mesma operação ou recurso, é responsabilidade do sistema operacional administrar o compartilhamento de recursos.</p>
+
+                <p>O sistema operacional atua como uma interface entre os usuários e os recursos disponíveis no computador, facilitando a comunicação e a utilização de tais recursos.</p>
+
+                <h3>Compartilhamento de recursos de forma organizada e protegida</h3>
+
+                <p>Em sistemas onde diversos usuários acessam os mesmos recursos é necessário que exista um controle no uso destes recursos e que permita o compartilhamento dos recursos para os vários usuários. Esta também é uma responsabilidade do sistema
+                    operacional que deve controlar e gerenciar o acesso concorrente aos recursos do computador. Imagine uma impressora compartilhada em um departamento por vários funcionários que trabalham no departamento. A função de controlar e gerenciar
+                    o compartilhamento de recursos é necessária mesmo em sistemas mono usuário onde podemos ter a execução de mais de uma tarefa ao mesmo tempo. Nestes sistemas é também o sistema operacional que deve controlar o acesso concorrente aos
+                    recursos.
+                </p>
+
+                <h3>Uma máquina em camadas</h3>
+
+                <p>O computador pode ser entendido com uma máquina de camadas. Inicialmente temos duas camadas: o hardware e o sistema operacional, sendo que podem ser necessárias outras camadas para atender às necessidades do usuário.</p>
+
+                <p>Os computadores de primeira geração não faziam uso ainda dos sistemas operacionais o que obrigava as aplicações dos usuários a interagir diretamente com o hardware do computador. Com o surgimento dos primeiros sistemas operacionais, surgiu
+                    o conceito de maquina em camadas onde o sistema operacional é uma camada intermediária entre as aplicações dos usuários e o hardware do computador.</p>
+
+                <img src="imgs/sistemaoperacional1.png" style="display: block; margin: 0 auto;" alt="Estrutura aplicações e hardware">
+                <p>Na verdade existem várias camadas adicionais formadas por programas utilitários, bibliotecas, maquinas virtuais e micro programação. Na prática a máquina em camadas está mais para algo assim:</p>
+                <img src="imgs/sistemaoperacional2.png" style="display: block; margin: 0 auto;" alt="Separacao Hardware e Aplicativos">
+
+                <p>Em cada camada temo uma linguagem de programação diferente, variando entre as linguagens de baixo nível ( hardware ) e as linguagens de alto nível ( aplicativos e utilitários ).</p>
+
+                <h3>O sistema operacional facilitando o desenvolvimento de software</h3>
