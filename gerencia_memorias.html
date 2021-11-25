@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema Operacional - Eduvale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="alert alert-info text-center">Aulas de Sistemas Operacionais</h1>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-3">
+
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item ">Visão Geral dos Sistemas Operacionais</a>
+                    <a href="evolucao.html" class="list-group-item">A Evolução dos Sistemas Operacionais</a>
+                    <a href="ocorrencias.html" class="list-group-item">Concorrência</a>
+                    <a href="estrutura.html" class="list-group-item">Estrutura do Sistema Operacional</a>
+                    <a href="processo.html" class="list-group-item">Processo</a>
+                    <a href="thread.html" class="list-group-item">Thread</a>
+                    <a href="sincronizacao.html" class="list-group-item">Sincronização e Comunicação de Processos</a>
+                    <a href="gerencia_processador.html" class="list-group-item">Gerencia do Processador</a>
+                    <a href="gerencia_memoria.html" class="list-group-item active">Gerência de Memória</a>
+                    <a href="gerencia_dispositivos.html" class="list-group-item">Gerencia de dispositivos</a>
+                    <a href="gerencia_arquivos.html" class="list-group-item">Gerência de Sistema de Arquivos</a>
+                    <a href="multiplos_processarores.html" class="list-group-item">Sistemas com múltiplos
+                        processadores</a>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <h2 class="text-center alert alert-secondary">Gerência de Memória</h2>
+                <h3>Introdução</h3>
+                <p>A memória é um importante recurso que deve ser gerenciado cuidadosamente. É senso comum perceber que, embora a capacidade de memória disponível nos sistemas de computação cada vez aumente mais, os desenvolvedores de software demandam mais
+                    memória para que seus programas possam ser armazenados e
+                </p>
+                executados. A questão é que a memória, ao contrário do processador, possui um limite e por isso seu gerenciamento é crítico para o funcionamento dos processos pelo SO. Gerenciamento de memória é a tarefa desempenhada pela parte do SO que controla o uso
+                da memória.
+
+                <h3>Funções da Gerência de Memória</h3>
+                <p>É função dessa parte do SO conhecer quais regiões da memória estão em uso e quais não estão sendo usadas, alocar memória para processos quando eles necessitarem e desalocá-la quando os processos terminarem de ser executados, gerenciar
+                    o swapping entre a memória principal e o disco, quando a memória principal não for grande o suficiente para comportar todos os processos.</p>
+                <h3>A Gerência de Memória em Sistemas Multiprogramados</h3>
+                <p>A necessidade de manter múltiplos programas ativos na memória do sistema impõe outra necessidade: a de controlar como esta memória é utilizada por estes vários programas. </p>
+                <p>O gerenciamento de memória é, portanto, o resultado da aplicação de duas práticas distintas dentro de um sistema de computação:</p>
+                <ul>
+                    <li> Como a memória é vista, isto é, como pode ser utilizada pelos processos existentes neste sistema.
+                    </li>
+                    <li> Como os processos são tratados pelo SO quanto às suas necessidades de uso de memória.</li>
+                </ul>
+
+                <h3>A Organização Hierárquica da Memória</h3>
+                <p>Em um sistema de computação, o armazenamento de dados ocorre em diversos níveis. </p>
+                <p>Isso quer dizer que o armazenamento é realizado em diferentes tipos de dispositivos devido a quatro fatores básicos:</p>
+
+                <ol>
+                    <li>Tempo de acesso.</li>
+                    <li>Velocidade de operação.</li>
+                    <li>Custo por unidade de armazenamento.</li>
+                    <li>Capacidade de armazenamento.</li>
+                </ol>
+
+                <p>Com isso, o projetista de um sistema operacional determina quanto de cada tipo de memória será necessário para que o sistema seja, ao mesmo tempo, eficiente e economicamente viável. Ocorre que quanto mais rápida mais cara a memória e menor
+                    sua capacidade de armazenamento de dados. Abaixo é exibida uma figura demonstrando essa hierarquia da organização da memória:</p>
+                <img src="imgs/memoria1.png" alt="">
+
+
+                <p>O Armazenamento Interno são posições de memória disponíveis internamente ao processador para permitir ou agilizar sua operação. É constituído dos registradores do processador e de seu cache interno.
+                </p>
+                <p>O Armazenamento Primário são as posições de memória interna diretamente acessíveis pelo processador. Tipicamente, são CIs de memória SRAM, DRAM, EPROM, PROM, entre outras. </p>
+                <p>O Armazenamento Secundário são as posições de memória externa que não podem ser acessadas diretamente pelo processador, devendo ser movidas para o Armazenamento Primário antes da sua utilização. Tipicamente, são os dispositivos de armazenamento
+                    de massa tal como o disco rígido.</p>
+                <p>Perceba que o Armazenamento Interno possui as maiores velocidades de acesso, ou seja, os menores tempos de acesso, representando os melhores dispositivos em termos de desempenho, embora sejam os mais caros. Por outro lado, os dispositivos
+                    de Armazenamento Secundário são os de maior capacidade e os de melhor relação custo/Byte, mas consideravelmente mais lentos. </p>
+                <p>O Armazenamento Primário representa um caso intermediário, em que a velocidade e o tempo de acesso são adequados à operação direta com o processador, mas cujo custo ainda assim é alto. </p>
+                <p>Com a evolução dos computadores, a atual organização conta com outros elementos adicionados para otimizar o desempenho do sistema e, ainda assim, reduzir seu custo.</p>
+
+                <img src="imgs/memoria2.png" alt="">
+
+                <p>Os registradores, implementados em número limitado em razão de seu custo, são geralmente usados para manter dentro do processador dados frequentemente utilizados. </p>
+                <p>Os caches interno e externo, em razão de sua maior velocidade, são usados para manter uma porção do programa que pode ser executada mais rapidamente do que na memória principal, aumentando o desempenho do sistema. </p>
+                <p>A memória primária armazena os programas e dados em execução no sistema. </p>
+                <p>Os dispositivos de armazenamento Secundário são usados para preservação dos dados de forma perene. O cache de disco é utilizado para acelerar a operação das unidades de disco, podendo esta técnica ser utilizada para outros tipos de periféricos</p>
+
+                <h3>Tipos de Gerenciamento de Memória</h3>
+                <p>De maneira geral, sistemas de gerenciamento de memória podem ser divididos em duas classes: aqueles que movem processos (programas) do disco para a memória principal e vice-versa, e aqueles que não realizam isto, trabalhando somente na
+                    memória. </p>
+
+                <h4></h4>
+                Alocações Particionadas Estática e Dinâmica
+                <p>Em sistemas multiprogramados, a memória primária é dividida em blocos chamados de partições. Inicialmente, as partições, embora de tamanho fixo, não tinham necessariamente o mesmo tamanho entre elas, possibilitando diferentes configurações
+                    para sua utilização. Este esquema é conhecido como alocação particionada estática e tinha como grandes problemas:</p>
+                <ul>
+                    <li>O fato de os programas, normalmente, não preencherem totalmente as partições onde eram carregados, desperdiçando espaço.</li>
+
+                    <li>Se um programa fosse maior do que qualquer partição livre, ele ficaria aguardando uma que o acomodasse, mesmo se existisse duas ou mais partições adjacentes que, somadas, totalizassem o tamanho do programa. Este tipo de problema, onde
+                        pedaços de memória ficam impedidos de serem usados por outros programas, é chamado de fragmentação.</li>
+                </ul>
+
+                <p>A figura abaixo demonstra o problema de fragmentação de memória:</p>
+
+                <img src="imgs/memoria3.png" alt="">
+
+                <p>Dado o problema da fragmentação na alocação particionada estática, foi necessário outro tipo de alocação como solução e, consequentemente, o aumento do compartilhamento da memória. Na alocação particionada dinâmica, foi eliminado o conceito
+                    de partições de tamanho fixo. Nesse esquema, cada programa utilizaria o espaço que necessitasse, passando esse bloco a ser sua partição.</p>
+                <p>A figura abaixo demonstra o esquema de alocação particionada dinâmica:</p>
+
+                <p>A princípio, o problema da fragmentação pareceu estar resolvido, porém, neste caso, a fragmentação começará a ocorrer, realmente, quando os programas forem terminando e deixando espaços cada vez menores na memória, não permitindo o ingresso
+                    de novos programas.</p>
+                <p>Para exemplificar este fato, veja os seguintes programas; com o término de B e E, mesmo existindo 8 KB livres de memória, o programa D, de 6 KB, não poderá ser carregado.</p>
+                <p>Depois de já ter sido detectada a fragmentação da memória, há duas soluções para o problema:</p>
+                <p>a) Caso o programa C termine, o sistema pode reunir apenas os espaços adjacentes, produzindo espaço de tamanho 8 KB.</p>
+                <p>b) Caso o programa C continue executando, o sistema pode realocar todas as partições ocupadas, eliminando todos os espaços entre elas e criando uma única área livre contígua.</p>
+                <p>A complexidade do algoritmo de desfragmentação e o consumo de recursos do sistema, como processador e área em disco, podem tornar este processo inviável. É importante perceber que, nesses dois tipos de gerenciamento de memória apresentados,
+                    o espaço de endereçamento é igual ao tamanho da memória primária existente no sistema.</p>
