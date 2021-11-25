@@ -120,3 +120,125 @@
                                     <li>Um sinal de interrupção é gerado para o processador;</li>
                                     <li>Apos o termino da execução da instrução corrente, o processador identifica o pedido de interrupção;</li>
                                     <li>O conteúdo dos registradores PC e seus status são salvos</li>
+                                    <li>O processador identifica qual rotina de tratamento de exceção deve ser executada</li>
+                                </ol>
+
+
+
+                            </td>
+
+                            <td>
+                                <ol>
+                                    <li>A rotina de tratamento salva o conteúdo dos demais registradores do processador na pilha de controle do programa</li>
+                                    <li>A rotina de tratamento é executada</li>
+                                    <li>Após o término da execução da rotina de tratamento, os registradores e uso geral são restaurados, alem do registrador de status, retomando a execução do programa interrompido</li>
+                                </ol>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Para cada tipo de interrupção existe uma rotina de tratamento associada, para a qual o fluxo de execução deve ser desviado. No momento em que a interrupção é gerada, o processador deve determinar para qual rotina de tratamento de interrupção deve ser
+                    desviado o fluxo.</p>
+
+                <h3> Métodos para tratamento de interrupções</h3>
+                <p>
+                    Existem dois métodos para o tratamento de interrupções:</p>
+                <p>
+                    O primeiro método chamado vetor de interrupções possui um vetor com o endereço inicial de cada rotina de tratamento de interrupção. </p>
+                <p>
+                    O segundo método utiliza um registrador de status que identifica o tipo de interrupção gerada. Neste método existe uma única rotina de tratamento de interrupção que examina o registrador de status a fim de dar o tratamento adequado a interrupção gerada.</p>
+                <h3> Interrupções geradas durante o tratamento de interrupções</h3>
+                <p>
+                    As interrupções são geradas por eventos assíncronos, que são externos à instrução do programa corrente. Estes eventos não podem ser previstos e podem ocorrer inúmeras vezes, inclusive podendo ocorrer durante a execução de uma rotina de tratamento de interrupção.</p>
+                <p>
+                    Neste caso, alguns processadores simplesmente ignoram a ocorrência de interrupção quando uma rotina de tratamento de interrupção estiver sendo executada.</p>
+                <p>
+                    Outros processadores não permitem que as interrupções sejam desabilitadas fazendo com que exista sempre um tratamento para cada interrupção. Para isso o processador necessita saber qual a ordem de atendimento que deverá sequir para atender as interrupções.
+                    Para isso as interrupções precisam possuir prioridade, de acordo com a importância de cada interrupção.</p>
+                <h3> As Exceções</h3>
+                <p>
+                    As exceções são parecidas com as interrupções, a principal diferença é o motivo pelo qual o evento é gerado. A exceção é o resultado direto de uma instrução dentro do próprio programa, como a divisão por zero ou a ocorrência de um erro de estouro de memória
+                    em uma operação aritmética ( overflow ).</p>
+                <p>
+                    As exceções são portanto geradas por eventos síncronos dentro do próprio programa e portanto tais eventos são previsíveis e podem ser tratados pelo programador que pode incluir tratamento de exceção no programa para que o mesmo não seja interrompido.
+                </p>
+                <p>
+                    O tratamento de exceção é similar ao tratamento de interrupções. Para cada exceção gerada durante a execução de um programa a ação é interromper a execução do programa e invocar uma rotina para o tratamento da exceção. Existe uma rotina de tratamento
+                    de exceção, para a qual o fluxo de execução é desviado quando a exceção é lançada durante a execução do programa e o programa é interrompido.</p>
+                <h3> Operações de entrada e saída</h3>
+                <p>
+                    Nos primeiros sistemas computacionais, a comunicação entre o processador e os dispositivos de entrada saída era controlada por um conjunto de instruções especiais denominadas instruções de entrada saída que eram executadas pelo próprio processador. Estas
+                    instruções continham informações detalhadas de cada periférico com o qual o processador precisava se comunicar. Esta abordagem trazia uma forte dependência entre o processador e os dispositivos de entrada saída.</p>
+                <p>
+                    O surgimento do controlador, ou interface, permitiu ao processador agir de forma independente dos dispositivos de entrada e saída. O processador não se comunicava mais diretamente com os periféricos. Cabia agora ao controlador gerenciar a comunicação
+                    com os dispositivos de entrada saída. Desta forma as instruções de entrada saída ficaram mais simples pois agora não precisavam ter detalhes de cada periférico.</p>
+                <p>
+                    O controlador usava duas maneiras para gerenciar a comunicação entre o processador e os dispositivos de entrada saída:</p>
+                <ul>
+                    <li><b>Entrada saída controlada por programa</b> - Onde o sistema ficava testando permanentemente o estado do periférico para saber quando a operação de entrada saída chegava ao seu final. Este modo de gerencia mantinha o processador ocupado
+                        até que a operação de entrada saída chegasse ao final.<br> A evolução deste modelo foi permitir que apos o inicio da operação de entrada saída o processador ficasse livre para outras tarefas e em intervalos de tempo o sistema operacional
+                        deveria testar o estado do periférico para saber se a operação de entrada saída tinha terminado. Em sistemas com muitos periféricos, o processamento é interrompido toda hora para testar o estado dos diversos periféricos.</li>
+                    <li><b>Entrada saída controlada por interrupção</b> - Com o mecanismo de interrupção ficou mais fácil pois agora o controlador interrompe o processador para sinalizar o termino de uma operação de entrada saída. Neste modo o processador
+                        fica livre para executar outras tarefas. Cabe ao controlador sinalizar, através de uma interrupção, ao processador que a operação de entrada saída foi concluída. O tratamento da interrupção é feito conforme já explicado acima.<br>                        O modo de entrada saída controlada por interrupção é muito mais eficiente pois libera o processador para outras tarefas, principalmente, para executar instruções que é a função principal do processador, ao invés de controlar a
+                        comunicação com os dispositivos de entrada saída, ficando esta função para o sistema operacional.</li>
+                </ul>
+
+
+
+
+
+
+
+
+
+                <h3> Buffering </h3>
+                <p>
+                    A técnica de buffering consiste no uso de uma área da memória principal denominada buffer que serve para transferência de dados entre os dispositivos de entrada saída e a memória. Esta técnica permite que uma operação de leitura seja transmitida primeiramente
+                    para o buffer, liberando imediatamente o dispositivo de entrada para efetuar uma nova leitura. Neste caso, enquanto o processador manipula o dado localizado no buffer, o dispositivo realiza outra operação de leitura no mesmo instante.
+                    Este mesmo mecanismo é usado em operações de escrita de dados.</p>
+                <p>
+                    O buffering foi criado para minimizar o problema de velocidade entre o processador e os dispositivos de entrada saida. O objetivo é manter, na maior parte do tempo, o processador e os dispositivos de entrada saída ocupados.</p>
+                <p>
+                    A unidade de transferência usada no mecanismo de buffering é o registro. O tamanho do registro pode ser especificado de acordo com o dispositivo. Uma linha para uma impressora, um registro para um sistema que processa arquivos ou um carácter para um teclado.</p>
+                <p>
+                    A ideia é que o buffer possa armazenar vários registros ainda que nem todos estejam sendo processados pelo processador. Assim o dispositivo de entrada lê vários registros e os coloca no buffer antes que o processador manipule todos os registros. A ideia
+                    é tentar compatibilizar a diferença entre o tempo em que o processador executa as instruções e o tempo em que o dispositivo de entrada saída realiza as operações de leitura e gravação.</p>
+
+
+
+                <h3> Spooling </h3>
+                <p>
+                    A técnica de spooling foi pensada para aumentar o grau de concorrência e a eficiência dos sistemas operacionais. Esta técnica utiliza uma área em disco como um grande buffer. Neste caso, os dados são lidos ou gravados em disco enquanto programas são executados
+                    concorrentemente.</p>
+                <p>
+                    Esta técnica está presente atualmente nos sistemas operacionais e é usada para gerenciar a fila de impressão. No momento em que um arquivo é impresso o mesmo é gravado em disco, em um arquivo de spool, e o programa que solicitou a impressão fica livre
+                    para outras atividades podendo ser continuar sua execução sem ter que aguardar o término da impressão do arquivo, a conclusão da operação de saída. Posteriomente, o sistema operacional envia o arquivo de spool para uma fila de impressão
+                    onde será enviado para a impressora.</p>
+
+                <h3> Reentrância</h3>
+                <p>
+                    A reentrância permite que um programa em execução seja compartilhado por vários usuários simultaneamente de forma a evitar que várias cópias do mesmo programa sejam carregadas na memória principal para execução. Isto evita desperdício de espaço em memória
+                    e redundância de processos no sistema operacional que são o mesmo programa.</p>
+                <p>
+                    A reentrância permite que apenas uma cópia do programa seja carregada na memória e o código executável seja compartilhado por vários usuários onde cada usuário possui sua área de dados em separado. Desta forma temos um uso mais eficiente da memória. </p>
+                <p>
+                    Este recurso é muito usado em programas usados por vários usuários tais como editores de texto, compiladores, planilhas eletrônicas, etc.</p>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
