@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema Operacional - Eduvale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="alert alert-info text-center">Aulas de Sistemas Operacionais</h1>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-3">
+
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item ">Visão Geral dos Sistemas Operacionais</a>
+                    <a href="evolucao.html" class="list-group-item">A Evolução dos Sistemas Operacionais</a>
+                    <a href="ocorrencias.html" class="list-group-item">Concorrência</a>
+                    <a href="estrutura.html" class="list-group-item">Estrutura do Sistema Operacional</a>
+                    <a href="processo.html" class="list-group-item active">Processo</a>
+                    <a href="thread.html" class="list-group-item">Thread</a>
+                    <a href="sincronizacao.html" class="list-group-item">Sincronização e Comunicação de Processos</a>
+                    <a href="gerencia_processador.html" class="list-group-item">Gerencia do Processador</a>
+                    <a href="gerencia_memoria.html" class="list-group-item">Gerência de Memória</a>
+                    <a href="gerencia_dispositivos.html" class="list-group-item">Gerencia de dispositivos</a>
+                    <a href="gerencia_arquivos.html" class="list-group-item">Gerência de Sistema de Arquivos</a>
+                    <a href="multiplos_processarores.html" class="list-group-item">Sistemas com múltiplos
+                        processadores</a>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <h2 class="text-center alert alert-secondary">Processo</h2>
+                <h3>Introdução</h3>
+                <p>Vimos que em um ambiente multi programado o sistema operacional gerencia os diversos programas
+                    executados e controla o compartilhamento dos recursos por estes programas que são executados de
+                    forma concorrente.</p>
+                <p>Para que isso aconteça todo programa executado deve estar sempre associado a um processo. O conceito
+                    de processo é a base para a implementação de um sistema multi programado.</p>
+                <p>A gerência de processos é uma das funções do sistema operacional, possibilitando a alocação de
+                    recursos aos programas, o compartilhamento de dados e arquivos, a troca de informações entre
+                    programas e a sincronização de suas tarefas. Tudo isso é feito através da gerência de processos.</p>
+                <p>Em sistemas com múltiplos processadores existe a execução simultânea de processos em diferentes
+                    processadores.</p>
+                <h3>O Conceito de Processo</h3>
+                <p>O processador quando executa instruções de um processo não sabe qual programa encontra-se em
+                    execuçao. O sistema operacional é que deve implementar a concorrência entre programas gerenciando a
+                    alternância da execução de instruções na UCP de forma controlada a segura. Para isso o sistema
+                    operacional faz uso do conceito de processos.</p>
+                <p>Um processo pode ser entendido como um programa em execução. Para que a execução simultânea de
+                    diversos programas ocorra sem problemas é necessário que todas as informações do processo
+                    interrompido sejam salvas para que quando este voltar a ser executado não lhe falte nenhuma
+                    informação e possa continuar a execução exatamente no ponto onde estava quando foi interrompido.</p>
+                <p>O conceito de processo pode ser definido como sendo o conjunto de informações necessárias para que o
+                    sistema operacional implemente a concorrência de programas.</p>
+                <p>A concorrência de programas é implementada através da alternância de processos sendo executados na
+                    UCP. A troca de um processo por outro processo é feita pelo sistema operacional e é chamada por
+                    mudança de contexto. O conjunto de informações de um processo é chamado de contexto do processo.</p>
+
+                <h3>Ambiente do Processo</h3>
+                <p>Um processo também pode ser definido em termos do ambiente onde um programa é executado o que inclui
+                    a quantidade de recursos que o processo pode utilizar tais como espaço de endereçamento da memória
+                    principal, tempo de processador e área em disco.</p>
+                <p>O resultado da execução de um mesmo programa pode variar em função do ambiente em que ele é executado
+                    devido aos recursos disponíveis no momento de sua execução.</p>
+                <p>Caso um processo necessite de recursos não disponíveis o sistema operacional irá interromper sua
+                    execução por falta de recursos disponíveis.</p>
+
+                <h3>A Estrutura de um Processo</h3>
+                <p>Todo processo é formado por três partes:</p>
+                <ul>
+                    <li>Contexto de hardware</li>
+                    <li>Contexto de software</li>
+                    <li>Espaço de endereçamento</li>
+                </ul>
+
+                <img src="imgs/estrutura de um processo.jpg" alt="">
+
+                <h3>O Contexto de hardware</h3>
+                <p>O contexto de hardware armazena o conteúdo dos registradores gerais da UCP, além dos registradores de
+                    uso específicos ( CI ou PC, stack pointer ). Quando um processo está em execução, o seu conteúdo de
+                    hardware está armazenado nos registradores do processador.</p>
+                <h3>O Contexto de software</h3>
+                <p>O Contexto de software armazena informações sobre limites e características dos recursos que podem
+                    ser alocados pelo processo, como o número máximo de arquivos abertos simultaneamente, prioridade de
+                    execução e tamanho do buffer para operações de E/S. Estas características são determinadas no
+                    momento da criação do processo e durante sua execução.</p>
+                <p>O Contexto de software é composto por três grupos de informações sobre o processo:</p>
+                <ul>
+                    Identificação - Cada processo possui um identificador ( PID - process identification ) que é
+                    representado por um número. O processo é identificado pelo sistema operacional através do PID. O
+                    processo também possui a identificação do usuário ou processo que o criou ( owner ). Cada usuário
+                    possui uma identificação no sistema ( UID - User identification ), atribuida ao processo no momento
+                    de sua criação.
+
+                    Quotas - As quotas são o limite de cada recurso do sistema que um processo pode alocar. Caso uma
+                    quota seja o insuficiente o processo pode ser executado lentamente, ser interrompido ou até não ser
+                    executado. São exemplos de quotas:
+
+                    Numero máximo de arquivos abertos
+                    Tamanho máximo da memória principal e secundária que pode ser alocada
+                    Número máximo de operações de E/S pendentes
+                    Tamanho máximo do buffer para operações de E/S
+                    Número máximo de processos
+
+                    Privilégios - Os privilégios ou direitos definem as ações que um processo pode fazer em relação a
+                    ele mesmo, aos demais processos e ao sistema operacional.
+                </ul>
+
+                <h3>Espaço de Endereçamento</h3>
+                <p>O espaço de endereçamento é a área de memória pertencente ao processo onde instruções e dados do
+                    programa são armazenados para execução. Cada processo possui seu próprio espaço de endereçamento que
+                    é protegido pelo sistema operacional para que não haja acesso pelos demais processos em execução.
+                </p>
+
+                <h3>Bloco de Controle de Processo</h3>
+                <p>O processo é implementado pelo sistema operacional através de uma estrutura de dados chamada bloco de
+                    controle do processo ( PCB - Process Control Block ). O sistema operacional, através do PCB, mantém
+                    todas as informações sobre o contexto de hardware, contexto de software e espaço de endereçamento.
+                    Cada processo possui seu PCB que mantêm todas as suas informações.</p>
+                <p>OS PCBS de todos os processos são mantidos na memória principal em uma área exclusiva do sistema
+                    operacional. O tamanho desta área de memória é controlado por parâmetro no sistema operacional de
+                    acordo com o número máximo de processos que podem ser suportados pelo sistema operacional.</p>
+                <p>A figura abaixo mostra algumas das informações do BCP de um processo:</p>
+                <img src="imgs/bloco de controle de processo.png" alt="">
